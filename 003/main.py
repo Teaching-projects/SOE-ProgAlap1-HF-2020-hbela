@@ -25,3 +25,14 @@ Pelda kimenet:
 [0, 35, 1]
 
 """
+
+n = int(input())
+poz = 0
+t = []
+while poz < n:
+    a = int(input())
+    if a >= 0:
+        poz +=1
+        t.append(a)
+
+print(t)
