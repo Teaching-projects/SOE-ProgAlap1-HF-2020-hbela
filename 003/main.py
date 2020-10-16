@@ -35,4 +35,5 @@ while poz < n:
         poz +=1
         t.append(a)
 
-print(t)
+for i in range(len(t)):
+    print(t[i])
