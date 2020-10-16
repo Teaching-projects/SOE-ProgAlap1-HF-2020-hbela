@@ -1,7 +1,5 @@
 """
 Kerj be egy szamot, ird ki a ketszereset.
 """
-
-a = int(input())
-
-print(a*2)
+x=int(input())
+print(2*x)
