@@ -9,3 +9,17 @@ Kimenet:
 3
 54
 """
+
+a = int(input())
+b = int(input())
+x = a
+y = b
+while a !=b:
+    if a > b:
+        a = a - b
+    else:
+        b = b - a
+
+print(a)
+print(int(x*y/a))
+
