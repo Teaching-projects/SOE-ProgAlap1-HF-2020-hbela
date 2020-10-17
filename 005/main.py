@@ -19,3 +19,14 @@ Pl.:
 49 (100)  -->  1
 """
 
+szam = int(input())
+maradek = []
+osszeg = 0
+while szam > 0:
+    maradek.append(str(szam % 7))
+    szam //= 7
+
+for i in range(len(maradek)):
+    osszeg += int(maradek[i])
+
+print(osszeg)
