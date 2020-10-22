@@ -30,7 +30,7 @@ Kimenet:
 szam = int(input())
 szamok = []
 if(szam == 0):
-    print(szam)
+    break
 else:
     while szam != 0:
         if szam not in szamok:
