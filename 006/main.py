@@ -29,10 +29,8 @@ Kimenet:
 
 szam = int(input())
 szamok = []
-if(szam == 0):
-    break
-else:
-    while szam != 0:
+
+while szam != 0:
         if szam not in szamok:
             szamok.append(szam)
         szam = int(input())
