@@ -26,3 +26,16 @@ Kimenet:
 5
 6
 """
+
+szam = int(input())
+szamok = []
+if(szam == 0):
+    print(szam)
+else:
+    while szam != 0:
+        if szam not in szamok:
+            szamok.append(szam)
+        szam = int(input())
+
+for i in range(len(szamok)):
+    print(szamok[i])
