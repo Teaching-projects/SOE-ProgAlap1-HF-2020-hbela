@@ -2,7 +2,7 @@ egyenleg = 0
 nincs_szamla = 0
 honap = 0
 
-while honap != 3:
+while honap != 12:
     penzmozgas = int(int(input()))
     nincs_szamla += penzmozgas
     egyenleg += penzmozgas
@@ -13,7 +13,7 @@ while honap != 3:
     else:
         egyenleg += int(egyenleg * 0.1)
     honap += 1
-    
+
 print(int(egyenleg))
 print(nincs_szamla)
     
