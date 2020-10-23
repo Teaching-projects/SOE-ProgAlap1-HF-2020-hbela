@@ -1,11 +1,10 @@
 egyenleg = 0
-penz = [] #Számla nélküli pénz
-osszeg = 0
+nincs_szamla = 0
 honap = 0
 
-while honap != 12:
+while honap != 3:
     penzmozgas = int(int(input()))
-    penz.append(penzmozgas)
+    nincs_szamla += penzmozgas
     egyenleg += penzmozgas
     if honap != 0:
         egyenleg -= 2000
@@ -14,10 +13,7 @@ while honap != 12:
     else:
         egyenleg += int(egyenleg * 0.1)
     honap += 1
-
-for i in range(len(penz)):
-    osszeg += penz[i]
-
+    
 print(int(egyenleg))
-print(osszeg)
+print(nincs_szamla)
     
