@@ -26,6 +26,6 @@ else:
             egyseg = float(input())
     print(round(x,2))
     print(round(y,2))
-    print(math.sqrt(pow((0-round(x,2)),2) + pow((0-round(y,2)),2)))
+    print(round(math.sqrt(pow((0-round(x,2)),2) + pow((0-round(y,2)),2))),2)
 
     
