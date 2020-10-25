@@ -25,9 +25,22 @@ Pelda kimenet:
 Feltetelezhetjuk, hogy legalabb egy nem 0 szamot fogunk kapni.
 
 """
+def Max(list):
+    max = 0
+    for i in range(0, len(list)):
+        if list[i] > max:
+            max = list[i]
+    return max
+
+szamok = []
+while True:
+    szam = int(input())
+    if szam == 0:
+        break
+    szamok.append(szam)
+    
+for i in range(1,Max(szamok)+1):
+    print(str(i)+": "+str(szamok.count(i)))
 
 
-
-
-print(str(     )+": "+str(   ))
 
