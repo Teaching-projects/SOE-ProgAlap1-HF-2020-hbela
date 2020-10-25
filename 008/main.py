@@ -1,31 +1,25 @@
-import math
+def Tavolsag(x,y):
+    print(round(((0 - x) ** 2 + (0 - y) ** 2) ** 0.5, 2))
 
 x=0.0
 y=0.0
 
-irany = str(input())
-if irany == "stop":
-    print(round(x,2))
-    print(round(y,2))
-    print(math.sqrt(pow((0-round(x,2)),2) + pow((0-round(y,2)),2)))
-else:
+while True:
+    irany = str(input())
+    if irany == "stop": 
+        break
     egyseg = float(input())
-    while irany != 'stop':
-        if irany == "forward":
-            y += egyseg
-        if irany == "backward":
-            y -= egyseg
-        if irany == "right":
-            x += egyseg
-        if irany == "left":
-            x -= egyseg
-        irany = str(input())
-        if irany == "stop":
-            break
-        else:
-            egyseg = float(input())
-    print(round(x,2))
-    print(round(y,2))
-    print(round(math.sqrt(round(pow((0-round(x,2)),2),2) + round(pow((0-round(y,2)),2),2)),2))
+    if irany == "forward": 
+        y += egyseg
+    if irany == "backward": 
+        y -= egyseg
+    if irany == "right": 
+        x += egyseg
+    if irany == "left": 
+        x -= egyseg
+        
+print(round(x,2))
+print(round(y,2))
+Tavolsag(x,y)
 
     
