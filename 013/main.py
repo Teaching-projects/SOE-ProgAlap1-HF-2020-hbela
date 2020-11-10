@@ -51,7 +51,7 @@ def pretty_map_print(map, character):
     x = character["position"]["x"]
     y = character["position"]["y"]
     
-    if (x < len(map[1])-1 and x >= 0) and (y <= len(map) - 1 and y >= 0):
+    if (x <= len(map[1])-1 and x >= 0) and (y <= len(map) - 1 and y >= 0):
         map[y][x] = "🧙"
 
     for i in range(len(map)):
