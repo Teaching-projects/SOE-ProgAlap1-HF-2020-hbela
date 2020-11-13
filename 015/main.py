@@ -43,15 +43,19 @@ def pretty_map_print(map, character):
     y = character["position"]["y"]
     map[y][x] = "🧙"
     
+    if (x <= len(map[1])-1 and x >= 0) and (y <= len(map) - 1 and y >= 0):
+        map[y][x] = "🧙"
+
     for i in range(len(map)):
         if y - i <= character["vision"] and i - y <= character["vision"]:
             for k in range(len(map[i])):
                 if x - k <= character["vision"] and k - x <= character["vision"]:
-                    print(map[i][k],end="")
-                if map[i][k] != "🧙": 
-                    if x - k <= character["vision"] and k - x <= character["vision"]:
+                    if map[i][k] != "🧙": 
                         print(map[i][k],end="")
-        print()
+                        print(map[i][k],end="")
+                    else:
+                        print(map[i][k],end="")
+        print("")
 
 def move(map,character,direction):
     # ide csak masold be a multkorit, nem kell pofozni
