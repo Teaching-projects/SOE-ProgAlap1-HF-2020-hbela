@@ -55,7 +55,7 @@ def pretty_map_print(map, character):
                         print(map[i][k],end="")
                     else:
                         print(map[i][k],end="")
-        print("")
+            print("")
 
 def move(map,character,direction):
     # ide csak masold be a multkorit, nem kell pofozni
