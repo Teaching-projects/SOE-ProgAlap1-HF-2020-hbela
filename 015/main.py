@@ -39,9 +39,39 @@ Terkepnek a korabbit hasznalja, es ugyanugy a bal felso ficakbol indulunk.
 
 def pretty_map_print(map, character):
     # A multkorit kell kicsit megpofozni
+    x = character["position"]["x"]
+    y = character["position"]["y"]
+    map[y][x] = "🧙"
+    
+    for i in range(len(map)):
+        if y - i <= character["vision"] and i - y <= character["vision"]:
+            for k in range(len(map[i])):
+                if x - k <= character["vision"] and k - x <= character["vision"]:
+                    print(map[i][k],end="")
+                if map[i][k] != "🧙": 
+                    if x - k <= character["vision"] and k - x <= character["vision"]:
+                        print(map[i][k],end="")
+        print()
 
 def move(map,character,direction):
     # ide csak masold be a multkorit, nem kell pofozni
+    x = character["position"]["x"]
+    y = character["position"]["y"]
+    map[character["position"]["y"]][character["position"]["x"]] = "░"
+
+    if direction == "up" and map[y-1][x] != "█":
+        character["position"]["y"] -= 1
+        return True
+    elif direction == "down" and map[y+1][x] != "█":
+        character["position"]["y"] += 1
+        return True
+    elif direction == "left" and map[y][x-1] != "█":
+        character["position"]["x"] -= 1
+        return True
+    elif direction == "right" and map[y][x+1] != "█":
+        character["position"]["x"] += 1
+        return True
+    else: return False
 
 
 
