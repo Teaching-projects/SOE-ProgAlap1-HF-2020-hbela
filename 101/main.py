@@ -31,20 +31,18 @@ def megjelenites(szo:str, betuk:Tippek) -> str:
     Returns:
         str: a megjelenített változata a szónak
     """
-    a = 1
+
     jelenleg = ""
     for i in range(len(szo)):
         betuegyezik = False
         specialis = False
-        if kozte_van(szo[i], betuk): betuegyezik = True
-        if kozte_van(szo[i], specialis_karakterek): specialis = True
+        for j in range(len(betuk)):
+            if kozte_van(szo[i], betuk[j]): betuegyezik = True
+            if kozte_van(szo[i], specialis_karakterek): specialis = True
         if betuegyezik or specialis: jelenleg += szo[i]
         else: jelenleg += "_"
     return jelenleg
-
-lista =["a","l"]
-print(megjelenites("alma",lista))   
-
+  
 def megfejtett(szo:str, betuk:Tippek) -> bool:
     """Megadja, hogy sikerült-e már megfejtenünk a szót, azaz minden benne levő betű már a tippjeink között van.
 
