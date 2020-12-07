@@ -38,7 +38,8 @@ def megjelenites(szo:str, betuk:Tippek) -> str:
         specialis = False
         for j in range(len(betuk)):
             if kozte_van(szo[i], betuk[j]): betuegyezik = True
-            if kozte_van(szo[i], specialis_karakterek): specialis = True
+        for k in range(len(specialis_karakterek)):
+            if kozte_van(szo[i], specialis_karakterek[k]): specialis = True
         if betuegyezik or specialis: jelenleg += szo[i]
         else: jelenleg += "_"
     return jelenleg
