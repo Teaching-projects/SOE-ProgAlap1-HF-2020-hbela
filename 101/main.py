@@ -133,7 +133,7 @@ def akasztofa(szo:str,osszes_elet:int) -> None:
         print(megjelenites(szo,tippek))
         print(eletek(osszes_elet, rossz_tippek(szo,tippek)))
         print(tippek)
-        betu = str(input("Kérem a betűt: "))
+        betu = str(input("Adja meg a kovetkezo betut: "))
         if betu in tippek: 
             print("Már volt.")
         else:
