@@ -53,10 +53,8 @@ def megfejtett(szo:str, betuk:Tippek) -> bool:
     Returns:
         bool: `True` ha teljesen megfejtettük a szót, `False` különben
     """
-    for tipp in betuk:
-        if tartalmazza(szo,tipp) == True: return True
-        else: return False
-    
+    if "_" not in megjelenites(szo,betuk): return True
+    else: return False
 
 def tartalmazza(szo:str, betu:str) -> bool:
     """Megadja, hogy a megaadott betű szerepel-e a megadott szóban.
@@ -141,8 +139,14 @@ def akasztofa(szo:str,osszes_elet:int) -> None:
             tippek.append(betu)
         if megfejtett(szo,tippek) == True: 
             gyozelem = True
+            break
             
-    elet -= 1
+        if tartalmazza(szo,betu) == False: elet -= 1
+    if gyozelem:
+        print(szo)
+        print("Gratulalok, nyertel, es meg {} eleted maradt!".format(elet))
+    else: print("Sajnalom, nem nyertel, ez lett volna a megoldas: {}".format(szo))
+
 
 
 
