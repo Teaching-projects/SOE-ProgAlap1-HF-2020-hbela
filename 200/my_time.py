@@ -8,7 +8,7 @@ class Time:
         Args:
             seconds (int): a masodpercek szama
         """
-        pass
+        self.seconds = seconds
         
     def to_seconds(self) -> int:
         """Adja vissza egy `int`-ben, hogy masodpercben kifejezve mennyi az ido
@@ -21,7 +21,7 @@ class Time:
         >>> Time(345).to_seconds()
         345
         """
-        pass
+        return self.seconds
 
     def _ss(self)->int:
         """Visszaadja, hogy mennyit mutat a "masodpercmutato"
@@ -36,7 +36,9 @@ class Time:
         >>> Time(1234)._ss()
         34
         """
-        pass
+        while self.seconds > 60:
+            self.seconds -= 60
+        return self.seconds
     
     def _mm(self) -> int:
         """Visszaadja, hogy mennyit mutat a "percmutato"
@@ -51,7 +53,7 @@ class Time:
         >>> Time(1234)._mm()
         20
         """
-        pass
+        return int(self.seconds / 60)
     
     def _hh(self) -> int:
         """Visszaadja, hogy mennyit mutat az "oramutato", amely sosem nullazodik.
@@ -70,7 +72,7 @@ class Time:
         >>> Time(12345)._hh()
         3
         """
-        pass
+        return int(self.seconds / 3600)
     
     def pretty_format(self) -> str:
         """Visszaadja az idot szep modon
@@ -92,9 +94,23 @@ class Time:
         >>> Time(123456).pretty_format()
         '34:17:36'
         """
-        pass
+        secs = self.seconds
+        hour, minutes, seconds = None, None, None
 
+        hour = Time(secs)._hh()
+        secs -= 3600*hour
 
+        minutes = Time(secs)._mm()
+        secs -= minutes * 60
+
+        seconds = Time(secs)._ss()
+
+        if hour > 0:
+            return f'{hour:d}:{minutes:02d}:{seconds:02d}'
+        elif hour == 0 and minutes == 0:
+            return f'{seconds:02d}'
+        else: 
+            return f'{minutes}:{seconds:02d}'
 
     def set_from_string(self, time:str) -> int:
         """Beallitja az idot egy string alapjan, melynek a formatuma olyan mint a `pretty_format` eseteben.
@@ -116,5 +132,10 @@ class Time:
         >>> Time().set_from_string('111:01:23')
         399683
         """
-        pass
-
+        hms = time.split(':')
+        if len(hms) == 1:
+            return int(hms[0])
+        if len(hms) == 2:
+            return int(hms[0])*60 + int(hms[1])
+        if len(hms) == 3:
+            return int(hms[0])*3600 + int(hms[1]) * 60 + int(hms[2])
